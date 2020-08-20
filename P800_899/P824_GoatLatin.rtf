@@ -1,0 +1,39 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue233;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c93333;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Problem # 824.  Goat Latin\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://leetcode.com/problems/goat-latin/"}}{\fldrslt 
+\f1 \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 \outl0\strokewidth0 \strokec2 https://leetcode.com/problems/goat-latin/}}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+1. Define the set of vowels\
+2. Split the string S into words and store it in a list called S_list\
+3. Find the length of S_list which is n\
+4. Iterate through the for loop for i in range(n). If the first letter of the word is a consonant, then slice the word so that it starts with the second letter and the first letter is added to the end of the word.\
+5. Every word whether vowel or consonant has "ma" added at the end and also "a" repeated index times starting with 1 (not 0).\
+6. Append the modified word to the result list.\
+7. Return the result list as a string using join().\
+\
+Note: It is more efficient in terms of memory usage to add the words to a list and do the join, than to keep appending to a string as strings are immutable.\
+```\
+class Solution:\
+    def toGoatLatin(self, S: str) -> str:\
+        vowels = set('aeiouAEIOU')   # define the set of vowels\
+        S_list = S.split()\
+        n = len(S_list)\
+        result = []\
+        for i in range(n):\
+            word = S_list[i]\
+            if word[0] not in vowels:  # word begins with a consonant\
+                word = word[1:] + word[0]\
+            word = word + "ma" + "a" * (i + 1)\
+            result.append(word)\
+        return(" ".join(result))    \
+```}

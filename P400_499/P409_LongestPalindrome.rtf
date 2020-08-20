@@ -1,0 +1,73 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fnil\fcharset0 HelveticaNeue;
+\f3\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue233;\red51\green51\blue51;\red255\green255\blue255;
+\red29\green38\blue42;\red245\green247\blue249;\red151\green0\blue126;\red20\green0\blue196;\red73\green17\blue135;
+\red12\green90\blue1;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c93333;\cssrgb\c25882\c25882\c25882;\cssrgb\c100000\c100000\c100000;
+\cssrgb\c14902\c19608\c21961;\cssrgb\c96863\c97647\c98039;\cssrgb\c66667\c5098\c56863;\cssrgb\c10980\c0\c81176;\cssrgb\c36078\c14902\c60000;
+\cssrgb\c0\c41569\c0;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat3\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid101\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
+\margl1440\margr1440\vieww22760\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Problem # 409:   Longest Palindrome\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://leetcode.com/problems/longest-palindrome/"}}{\fldrslt 
+\f1 \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 \outl0\strokewidth0 \strokec2 https://leetcode.com/problems/longest-palindrome/}}
+\f1 \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 \outl0\strokewidth0 \strokec2 \
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl340\partightenfactor0
+\ls1\ilvl0
+\f2\fs28 \cf3 \cb4 \kerning1\expnd0\expndtw0 \ulnone \outl0\strokewidth0 {\listtext	1.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Get the length of s. If it is less than or equal to 1, return the length of the string.\cb1 \
+\ls1\ilvl0\cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	2.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 Use collections to import Counter put the letters into a dictionary based on the frequency(i.e. number of occurrences of the letter) -- key = letter and value = number of occurrences\cb1 \uc0\u8232 \cb4 This step is\cb1 \uc0\u8232 \cb4 my_dict = Counter(s)\cb1 \uc0\u8232 \cb4 This is equivalent to the following:\cb1 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f3\fs26 \cf5 \cb6 \strokec5 my_dict = \{\}\
+\pard\pardeftab720\sl400\partightenfactor0
+\cf7 \strokec7 for\cf5 \strokec5  letter \cf7 \strokec7 in\cf5 \strokec5  s:\
+     \cf7 \strokec7 if\cf5 \strokec5  letter \cf7 \strokec7 not\cf5 \strokec5  \cf7 \strokec7 in\cf5 \strokec5  s:\
+	      my_dict[letter] = \cf8 \strokec8 1\cf5 \strokec5 \
+	\cf7 \strokec7 else\cf5 \strokec5 :\
+	      my_dict[letter] += \cf8 \strokec8 1\cf5 \strokec5 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl340\sa280\partightenfactor0
+\ls2\ilvl0
+\f2\fs28 \cf3 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	3.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 \uc0\u8232 \cb4 Now count the number of letters that can be used in the palindrome. Get the list values from the dictionary (my_dict).\cb1 \uc0\u8232 \cb4 values = my_dict.values(0\cb1 \uc0\u8232 \cb4 Check if each value is odd or even. If even then add the value to count.\cb1 \uc0\u8232 \cb4 If odd then add value -1 to count, since we want the biggest even number less than the odd value\cb1 \uc0\u8232 \u8232 \
+\ls2\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	4.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 \uc0\u8232 \cb4 Finally, if there are odd letters left in the string, then we can increase count by 1 more, since that odd value can be in the middle of the palindrome.\cb1 \uc0\u8232 \cb4 If there are no odd values left, return the count.\cb1 \uc0\u8232 \u8232 \
+\ls2\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	5.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec3 \uc0\u8232 \cb4 My code is given below:\cb1 \uc0\u8232 \u8232 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f3\fs26 \cf7 \cb6 \strokec7 from\cf5 \strokec5  collections \cf7 \strokec7 import\cf5 \strokec5  Counter\
+\
+\cf7 \strokec7 class\cf5 \strokec5  \cf9 \strokec9 Solution\cf5 \strokec5 :\
+    \cf7 \strokec7 def\cf5 \strokec5  \cf8 \strokec8 longestPalindrome\cf9 \strokec9 (self, s: str)\cf5 \strokec5  -> int:\
+        n = len(s)  \cf10 \strokec10 # length of the string\cf5 \strokec5 \
+        \cf7 \strokec7 if\cf5 \strokec5  n <= \cf8 \strokec8 1\cf5 \strokec5 :\
+            \cf7 \strokec7 return\cf5 \strokec5 (n)\
+        \
+        my_dict = Counter(s) \cf10 \strokec10 # Put the string in a dictionary and get the count of each letter\cf5 \strokec5 \
+        values = my_dict.values() \cf10 \strokec10 # get the list of values in the dictionary\cf5 \strokec5 \
+        count = \cf8 \strokec8 0\cf5 \strokec5   \cf10 \strokec10 # count of letters used to build the palindrome\cf5 \strokec5 \
+        \cf7 \strokec7 for\cf5 \strokec5  val \cf7 \strokec7 in\cf5 \strokec5  values:\
+            \cf7 \strokec7 if\cf5 \strokec5  val % \cf8 \strokec8 2\cf5 \strokec5  == \cf8 \strokec8 0\cf5 \strokec5 :  \cf10 \strokec10 # if val is even then add this to count\cf5 \strokec5 \
+                count += val\
+            \cf7 \strokec7 else\cf5 \strokec5 :   \cf10 \strokec10 # val is odd and so take the largest even number of letters lower than val\cf5 \strokec5 \
+                count += val - \cf8 \strokec8 1\cf5 \strokec5 \
+        \
+        \cf7 \strokec7 if\cf5 \strokec5  n - count > \cf8 \strokec8 0\cf5 \strokec5 :  \cf10 \strokec10 # if there are more odd numbers left\cf5 \strokec5 \
+            \cf7 \strokec7 return\cf5 \strokec5 (count + \cf8 \strokec8 1\cf5 \strokec5 ) \cf10 \strokec10 # we can have one odd value in the palindrome\cf5 \strokec5 \
+			\
+        \cf7 \strokec7 return\cf5 \strokec5 (count) \cf10 \strokec10 # else case when there are no odd values left in s\cf5 \strokec5 \
+		\
+	```\
+}

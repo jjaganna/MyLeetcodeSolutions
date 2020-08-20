@@ -1,0 +1,64 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fnil\fcharset0 HelveticaNeue;
+\f3\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue233;\red0\green0\blue0;\red255\green255\blue255;
+\red51\green51\blue51;\red29\green38\blue42;\red245\green247\blue249;\red151\green0\blue126;\red73\green17\blue135;
+\red20\green0\blue196;\red181\green0\blue19;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c93333;\cssrgb\c0\c0\c0\c85098;\cssrgb\c100000\c100000\c100000;
+\cssrgb\c25882\c25882\c25882;\cssrgb\c14902\c19608\c21961;\cssrgb\c96863\c97647\c98039;\cssrgb\c66667\c5098\c56863;\cssrgb\c36078\c14902\c60000;
+\cssrgb\c10980\c0\c81176;\cssrgb\c76863\c10196\c8627;\cssrgb\c0\c0\c0\c65098;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\margl1440\margr1440\vieww14920\viewh14200\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Problem # 1286 :  Iterator for Combination\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://leetcode.com/problems/iterator-for-combination/"}}{\fldrslt 
+\f1 \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 \outl0\strokewidth0 \strokec2 https://leetcode.com/problems/iterator-for-combination/}}
+\f1 \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 \outl0\strokewidth0 \strokec2 \
+\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f2\fs32 \cf3 \cb4 \ulnone \strokec3 Simple Python 3 solution -- beats 98.41% in runtime\
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sl420\partightenfactor0
+\ls1\ilvl0
+\fs28 \cf5 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	1.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec5 Create comboList with all combinations in the initialization\cb1 \
+\ls1\ilvl0\cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	2.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec5 For next, If there are elements in comboList, pop the first element at index 0 and return it.\cb1 \
+\ls1\ilvl0\cb4 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	3.	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec5 For hasNext, check if the length of comboList > 0\cb1 \
+\pard\pardeftab720\sl400\partightenfactor0
+
+\f3\fs26 \cf6 \cb7 \strokec6 from itertools import combinations\
+\
+\pard\pardeftab720\sl400\partightenfactor0
+\cf8 \strokec8 class\cf6 \strokec6  \cf9 \strokec9 CombinationIterator\cf6 \strokec6 :\
+\
+    \cf8 \strokec8 def\cf6 \strokec6  \cf10 \strokec10 __init__\cf9 \strokec9 (\cf8 \strokec8 self\cf9 \strokec9 , \cf10 \strokec10 characters:\cf9 \strokec9  str, \cf10 \strokec10 combinationLength:\cf9 \strokec9  int)\cf6 \strokec6 :\
+        \cf8 \strokec8 if\cf6 \strokec6  len(characters) >= \cf10 \strokec10 combinationLength:\cf6 \strokec6 \
+            \cf8 \strokec8 self\cf6 \strokec6 .comboList = list(\cf11 \strokec11 ''\cf6 \strokec6 .join(x) \cf8 \strokec8 for\cf6 \strokec6  x \cf8 \strokec8 in\cf6 \strokec6  combinations(characters, combinationLength))\
+        \
+    \cf8 \strokec8 def\cf6 \strokec6  \cf10 \strokec10 next\cf9 \strokec9 (\cf8 \strokec8 self\cf9 \strokec9 )\cf6 \strokec6  -> \cf10 \strokec10 str:\cf6 \strokec6 \
+        \cf8 \strokec8 if\cf6 \strokec6  \cf8 \strokec8 self\cf6 \strokec6 .\cf10 \strokec10 comboList:\cf6 \strokec6 \
+            \cf8 \strokec8 return\cf6 \strokec6 (\cf8 \strokec8 self\cf6 \strokec6 .comboList.pop(\cf10 \strokec10 0\cf6 \strokec6 ))\
+        \cf10 \strokec10 else:\cf6 \strokec6 \
+            print(\cf11 \strokec11 "Error! there are no more combinations left"\cf6 \strokec6 )\
+\
+\
+    \cf8 \strokec8 def\cf6 \strokec6  \cf10 \strokec10 hasNext\cf9 \strokec9 (\cf8 \strokec8 self\cf9 \strokec9 )\cf6 \strokec6  -> \cf10 \strokec10 bool:\cf6 \strokec6 \
+         \cf8 \strokec8 return\cf6 \strokec6 (len(\cf8 \strokec8 self\cf6 \strokec6 .comboList) > \cf10 \strokec10 0\cf6 \strokec6 )\
+\pard\pardeftab720\sl420\partightenfactor0
+
+\f2\fs28 \cf5 \cb1 \strokec5 \
+\pard\pardeftab720\sl340\partightenfactor0
+\cf12 \strokec12 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\fs24 \cf12 \
+}

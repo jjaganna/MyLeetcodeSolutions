@@ -1,0 +1,40 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 ArialMT;\f1\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue233;\red0\green0\blue0;\red255\green255\blue255;
+\red51\green51\blue51;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c93333;\cssrgb\c0\c0\c0\c85098;\cssrgb\c100000\c100000\c100000;
+\cssrgb\c25882\c25882\c25882;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Problem #342 : Power of Four\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://leetcode.com/problems/power-of-four/"}}{\fldrslt \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 \outl0\strokewidth0 \strokec2 https://leetcode.com/problems/power-of-four/}}\cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 \outl0\strokewidth0 \strokec2 \
+\
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f1\fs32 \cf3 \cb4 \ulnone \strokec3 Simple Python 3 Solution using logarithm -- beats 96.97% in runtime and 88.60% in space complexity\
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs24 \cf2 \cb1 \ul \ulc2 \strokec2 \
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f1\fs28 \cf5 \cb4 \ulnone \strokec5 Take the logarithm of the number to the base 4.\
+Take the floor and ceiling of the logarithm of the number to the base 4.\
+If floor and ceiling are equal, then it is an integer.\
+
+\f0\fs24 \cf2 \cb1 \ul \ulc2 \strokec2 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf6 \ulnone import math\
+\
+class Solution:\
+    def isPowerOfFour(self, num: int) -> bool:\
+        if num <= 0:\
+            return(False)\
+        \
+        log_result = math.log(num, 4)\
+        return(math.floor(log_result) == math.ceil(log_result))\
+        #return(log_result.is_integer())   This means the same as the above line.}
